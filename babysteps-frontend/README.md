@@ -1,70 +1,125 @@
-# Getting Started with Create React App
+Here's a basic outline of the **BabySteps** project in markdown format that you can use for documentation purposes. Feel free to adjust or expand it based on the specific details of your codebase:
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+````markdown
+# BabySteps - Prenatal Care Appointment Booking System
 
-## Available Scripts
+BabySteps is an appointment booking system designed for a prenatal care service. The system allows patients to book appointments with doctors, view available slots, and manage their upcoming appointments. It prevents double bookings by computing available appointment slots based on the doctor's working hours and existing bookings.
 
-In the project directory, you can run:
+## Tech Stack
 
-### `npm start`
+- **Frontend**: React, Material-UI/Bootstrap
+- **Backend**: Node.js, Express
+- **Database**: MongoDB
+- **State Management**: React State or Redux
+- **API Integration**: Axios for making API requests
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Features
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### 1. **Doctor Selection Page**
 
-### `npm test`
+- Displays a list of available doctors.
+- Each doctor has an associated "Book Appointment" button.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 2. **Calendar/Slot View**
 
-### `npm run build`
+- Displays a 7-day calendar with available appointment slots for each doctor.
+- The available slots are calculated based on the doctor's working hours and existing bookings.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 3. **Appointment Booking Form**
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- A form where patients can enter their details (e.g., name, contact info) and select an available slot to book an appointment.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### 4. **Appointment Management**
 
-### `npm run eject`
+- A list of upcoming appointments is displayed.
+- Users can edit or cancel their appointments.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Backend (Node.js + Express)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### 1. **API Endpoints**
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- **GET /doctors**: Retrieve a list of available doctors.
+- **GET /appointments**: Retrieve a list of appointments for a specific doctor.
+- **POST /appointments**: Book a new appointment.
+- **PUT /appointments/:id**: Edit an existing appointment.
+- **DELETE /appointments/:id**: Cancel an existing appointment.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### 2. **Models**
 
-## Learn More
+- **Doctor**: Contains information about the doctor (e.g., name, specialty, working hours).
+- **Appointment**: Contains details about a patient's appointment (e.g., patient name, doctor, slot time, status).
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Frontend (React)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### 1. **Components**
 
-### Code Splitting
+- **DoctorList**: Displays the list of doctors.
+- **AppointmentCalendar**: Displays a 7-day calendar for appointment slots.
+- **AppointmentForm**: A form for booking or editing an appointment.
+- **AppointmentList**: Displays upcoming appointments with options to edit or cancel.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### 2. **State Management**
 
-### Analyzing the Bundle Size
+- React State or Redux to manage:
+  - Doctors list.
+  - Appointment slots for the selected doctor.
+  - Upcoming appointments.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### 3. **API Integration**
 
-### Making a Progressive Web App
+- Axios is used for making API calls to the backend for:
+  - Fetching doctors list.
+  - Fetching appointment slots.
+  - Booking, editing, and deleting appointments.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Setup Instructions
 
-### Advanced Configuration
+### 1. Clone the repository:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+```bash
+git clone <repository_url>
+cd babysteps
+```
+````
 
-### Deployment
+### 2. Install dependencies for both frontend and backend:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+#### Backend:
 
-### `npm run build` fails to minify
+```bash
+cd backend
+npm install
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+#### Frontend:
+
+```bash
+cd frontend
+npm install
+```
+
+### 3. Run the application:
+
+#### Backend:
+
+```bash
+cd backend
+npm start
+```
+
+#### Frontend:
+
+```bash
+cd frontend
+npm start
+```
+
+### 4. Visit the application:
+
+Open your browser and go to `http://localhost:3000` to view the frontend.
+
+## Future Enhancements
+
+- Implement user authentication (e.g., login/signup for patients and doctors).
+- Add email notifications for appointment reminders.
+- Improve UI/UX design with more customization options.
